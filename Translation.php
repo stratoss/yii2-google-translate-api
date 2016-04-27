@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-namespace richweber\google\translate;
+namespace stratoss\google\translate;
 
 use yii\helpers\Json;
 use yii\helpers\Html;
