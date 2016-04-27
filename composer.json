@@ -1,19 +1,23 @@
 {
-    "name": "richweber/yii2-google-translate-api",
+    "name": "stratoss/yii2-google-translate-api",
     "version":"1.0.0",
     "description": "Yii2 extension to Google Translate API",
     "keywords": ["yii2", "google", "translate", "api"],
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/RichWeber/yii2-google-translate-api/issues",
-        "wiki": "https://github.com/RichWeber/yii2-google-translate-api/wiki",
-        "source": "https://github.com/RichWeber/yii2-google-translate-api"
+        "issues": "https://github.com/stratoss/yii2-google-translate-api/issues",
+        "wiki": "https://github.com/stratoss/yii2-google-translate-api/wiki",
+        "source": "https://github.com/stratoss/yii2-google-translate-api"
     },
     "authors": [
         {
             "name": "RichWeber",
             "email": "rbagatyi@gmail.com"
+        },
+        {
+            "name": "stratoss",
+            "email": "stanimir@datacentrix.org"
         }
     ],
     "require": {
@@ -21,6 +25,6 @@
     },
     "minimum-stability": "dev",
     "autoload": {
-        "psr-4": { "richweber\\google\\translate\\": "" }
+        "psr-4": { "stratoss\\google\\translate\\": "" }
     }
 }
