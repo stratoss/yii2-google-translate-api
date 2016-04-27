@@ -1,6 +1,6 @@
 {
     "name": "stratoss/yii2-google-translate-api",
-    "version":"1.1.1",
+    "version":"1.1.2",
     "description": "Yii2 extension to Google Translate API",
     "keywords": ["yii2", "google", "translate", "api"],
     "type": "yii2-extension",
