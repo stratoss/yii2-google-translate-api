@@ -50,7 +50,10 @@ If you haven't done so already, create your project's API key by following these
 ```
 
 ```php
-Yii::$app->translate->translate($source, $target, $text);
+Yii::$app->translate->translate($source, $target, "Hello World");
+```
+```php
+Yii::$app->translate->translate($source, $target, ["Hello World", "Hello, my name is John Doe"]);
 ```
 
 ```php
