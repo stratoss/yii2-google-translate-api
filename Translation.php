@@ -3,13 +3,12 @@
  * @copyright Copyright &copy; Roman Bahatyi, richweber.net, 2015
  * @copyright Copyright &copy; Stanimir Stoyanov, 2016
  * @package yii2-google-translate-api
- * @version 1.1.2
+ * @version 1.1.3
  */
 
 namespace stratoss\google\translate;
 
 use yii\helpers\Json;
-use yii\helpers\Html;
 
 /**
  * Yii2 extension for Google Translate API
@@ -88,18 +87,11 @@ class Translation
             $text[$textKey] = rawurlencode($textValue);
         }
 
-        $request = self::API_URL . '/' . $method . '?' . http_build_query(
-            [
-                'key' => $this->key,
-                'source' => $source,
-                'target' => $target,
-            ]
-        );
+        $request = self::API_URL . "/{$method}?key={$this->key}&source={$source}&target=$target";
 
         foreach ($text as $string) {
-            $request .= '&q=' . $string;
+            $request .= "&q={$string}";
         }
-
         return $request;
     }
 
@@ -107,10 +99,19 @@ class Translation
      * Getting response
      * @param string $request
      * @return array
+     * @throws \Exception
      */
     protected function getResponse($request)
     {
-        $response = file_get_contents($request);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $request);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $response = curl_exec($ch);
+        if (curl_getinfo($ch, CURLINFO_HTTP_CODE) !== 200) {
+            throw new \Exception("Invalid response from Google!");
+        }
+        curl_close($ch);
+        //$response = file_get_contents($request);
         return Json::decode($response, true);
     }
 }
