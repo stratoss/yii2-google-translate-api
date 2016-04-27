@@ -1,3 +1,5 @@
+[original project](https://github.com/RichWeber/yii2-google-translate-api)
+
 # Yii2 extension to Google Translate API
 
 Google Translate API
@@ -9,13 +11,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-$ php composer.phar require richweber/yii2-google-translate-api "dev-master"
+$ php composer.phar require stratoss/yii2-google-translate-api "dev-master"
 ```
 
 or add
 
 ```
-"richweber/yii2-google-translate-api": "dev-master"
+"stratoss/yii2-google-translate-api": "dev-master"
 ```
 
 to the ```require``` section of your `composer.json` file.
@@ -40,7 +42,7 @@ If you haven't done so already, create your project's API key by following these
 'components' => [
     ...
     'translate' => [
-        'class' => 'richweber\google\translate\Translation',
+        'class' => 'stratoss\google\translate\Translation',
         'key' => 'INSERT-YOUR-API-KEY',
     ],
     ...
@@ -61,4 +63,4 @@ Yii::$app->translate->detect($text);
 
 ### License
 
-**yii2-twitter** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.
+**yii2-google-translate-api** is released under the BSD 3-Clause License. See the bundled `LICENSE.md` for details.
