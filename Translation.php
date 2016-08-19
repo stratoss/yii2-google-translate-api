@@ -107,9 +107,17 @@ class Translation
         curl_setopt($ch, CURLOPT_URL, $request);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($ch);
-        if (curl_getinfo($ch, CURLINFO_HTTP_CODE) !== 200) {
-            throw new \Exception("Invalid response from Google!");
-        }
+		if (curl_getinfo($ch, CURLINFO_HTTP_CODE) !== 200) {
+			$googleResponse = Json::decode($response);
+			if (array_key_exists('error', $googleResponse)) {
+				$message = $googleResponse['error']['errors'][0]['domain'] . ', ';
+				$message .= $googleResponse['error']['errors'][0]['reason'] . ', ';
+				$message .= $googleResponse['error']['errors'][0]['message'];
+			} else {
+				$message = 'Invalid response from Google!';
+			}
+			throw new \Exception($message);
+		}
         curl_close($ch);
         //$response = file_get_contents($request);
         return Json::decode($response, true);
